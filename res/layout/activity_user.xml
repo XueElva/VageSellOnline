@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="5dp" >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:alpha="0.8"
+            android:padding="3dp"
+            android:src="@drawable/icon_back_green" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:text="我"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/theme_green" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/user_back3" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:alpha="0.8" />
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_launcher" />
+        
+        <TextView 
+            android:id="@+id/defaultPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/icon"
+            android:layout_alignParentBottom="true"
+            android:text="18669097767"
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp"/>
+    </RelativeLayout>
+
+    <include layout="@layout/layout_line" />
+
+    <TextView
+        android:id="@+id/myOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/icon_myorder"
+        android:drawablePadding="17dp"
+        android:drawableRight="@drawable/icon_more_15"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:text="我的订单"
+        android:textSize="18sp" />
+
+    <include layout="@layout/layout_line" />
+
+    <TextView
+        android:id="@+id/myShoppingCart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/icon_shoppingcart_orange"
+        android:drawablePadding="10dp"
+        android:drawableRight="@drawable/icon_more_15"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:text="我的购物车"
+        android:textSize="18sp" />
+
+    <include layout="@layout/layout_line" />
+
+    <TextView
+        android:id="@+id/myAddr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/icon_address"
+        android:drawablePadding="10dp"
+        android:drawableRight="@drawable/icon_more_15"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:text="我的收货地址"
+        android:textSize="18sp" />
+
+    <include layout="@layout/layout_line" />
+
+    <TextView
+        android:id="@+id/callServer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/icon_call"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:text="联系商家"
+        android:textSize="18sp" />
+
+    <include layout="@layout/layout_line" />
+
+</LinearLayout>

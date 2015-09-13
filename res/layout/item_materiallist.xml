@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 食谱详情中的食材列表项 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp" 
+    android:gravity="center_vertical"
+    android:background="@color/white">
+    
+<ImageView 
+    android:id="@+id/isSupply"
+    android:layout_width="20sp"
+    android:layout_height="20sp"
+    android:src="@drawable/ic_launcher"/>
+
+<TextView 
+    android:id="@+id/productName"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:textColor="@color/black"
+    android:textSize="16sp"
+    android:layout_marginLeft="5dp"
+    android:text="鸡蛋"/>
+
+<TextView 
+    android:id="@+id/amount"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="0.6"
+    android:text="2个"
+    android:textSize="16sp"
+    android:textColor="@color/black"/>
+</LinearLayout>
