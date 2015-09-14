@@ -36,7 +36,7 @@
             android:layout_height="45dp"
             android:gravity="center_vertical"
             android:hint="手机号"
-            android:padding="3dp" />
+            android:padding="5dp" />
 
         <include layout="@layout/layout_line" />
 
@@ -46,7 +46,7 @@
             android:layout_height="45dp"
             android:gravity="center_vertical"
             android:hint="预设密码"
-            android:padding="3dp" />
+            android:padding="5dp" />
     </LinearLayout>
 
     <LinearLayout
