@@ -110,21 +110,25 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
-        
-         <activity
+        <activity
+            android:name="com.newage.vagetableonlinesell.activity.MyAddressActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="com.newage.vagetableonlinesell.activity.UserActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
-        
-          <activity
+        <activity
             android:name="com.newage.vagetableonlinesell.activity.MyOrderActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
-         <activity
+        <activity
             android:name="com.newage.vagetableonlinesell.activity.RecipeParentClassListActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
@@ -132,6 +136,18 @@
         </activity>
         <activity
             android:name="com.newage.vagetableonlinesell.activity.RecipeDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+         <activity
+            android:name="com.newage.vagetableonlinesell.activity.LoginActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+          <activity
+            android:name="com.newage.vagetableonlinesell.activity.RegisterActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >

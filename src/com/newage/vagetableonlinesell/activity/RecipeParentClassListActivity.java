@@ -6,7 +6,7 @@ public class RecipeParentClassListActivity extends XuBaseActivity {
 
 	@Override
 	public void setLayout() {
-		setContentView(R.layout.activity_recipe_classes);
+		setContentView(R.layout.activity_recipe_parentclasses);
 
 	}
 
