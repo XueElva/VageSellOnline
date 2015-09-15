@@ -45,3 +45,4 @@ Temporary Items
 *.properties
 *.cache
 *.classpath
+bin/R.txt

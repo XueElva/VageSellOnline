@@ -22,7 +22,7 @@ public class LoginActivity extends XuBaseActivity implements OnClickListener {
 	TextView mBack;
 	EditText mAccount, mPassword;
 	Button mLogin;
-	CheckBox mRememberPass;
+	CheckBox mRememberPassword;
 	TextView mRegister, mForgetPass;
 
 	@Override
@@ -33,7 +33,7 @@ public class LoginActivity extends XuBaseActivity implements OnClickListener {
 		mAccount = (EditText) findViewById(R.id.account);
 		mPassword = (EditText) findViewById(R.id.password);
 		mLogin = (Button) findViewById(R.id.login);
-		mRememberPass = (CheckBox) findViewById(R.id.rememberPassword);
+		mRememberPassword = (CheckBox) findViewById(R.id.rememberPassword);
 		mRegister = (TextView) findViewById(R.id.register);
 		mForgetPass = (TextView) findViewById(R.id.forgetPassword);
 
@@ -47,8 +47,8 @@ public class LoginActivity extends XuBaseActivity implements OnClickListener {
 		mAccount.setText(userSetting.getString(Constant.USER_NAME, ""));
 
 		if (userSetting.getBoolean(Constant.REMEMBER_PASS, false)) {
-			mRememberPass.setChecked(true);
-            mPassword.setText(userSetting.getString(Constant.PASSWORD, ""));
+			mRememberPassword.setChecked(true);
+			mPassword.setText(userSetting.getString(Constant.PASSWORD, ""));
 		}
 	}
 
@@ -81,7 +81,7 @@ public class LoginActivity extends XuBaseActivity implements OnClickListener {
 								Constant.USER_SETTING, Activity.MODE_PRIVATE)
 								.edit();
 						editor.putString(Constant.USER_NAME, account);
-						if (mRememberPass.isChecked()) {
+						if (mRememberPassword.isChecked()) {
 							editor.putString(Constant.PASSWORD, pass);
 							editor.putBoolean(Constant.REMEMBER_PASS, true);
 						} else {

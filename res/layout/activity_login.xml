@@ -45,7 +45,8 @@
             android:layout_height="45dp"
             android:gravity="center_vertical"
             android:hint="手机号"
-            android:padding="3dp" />
+            android:inputType="number"
+            android:padding="5dp" />
 
         <include layout="@layout/layout_line" />
 
