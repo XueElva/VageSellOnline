@@ -28,6 +28,15 @@
             android:text="我"
             android:textColor="@color/black"
             android:textSize="20sp" />
+        
+           <ImageView
+            android:id="@+id/setting"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:alpha="0.8"
+            android:src="@drawable/icon_setting_green" />
     </RelativeLayout>
 
     <include layout="@layout/layout_line" />
@@ -92,7 +101,7 @@
             android:padding="5dp" />
 
         <View
-            android:layout_width="0.5dp"
+            android:layout_width="1dp"
             android:layout_height="20dp"
             android:background="#ececec" />
 
@@ -109,7 +118,7 @@
             android:padding="5dp" />
 
         <View
-            android:layout_width="0.5dp"
+            android:layout_width="1dp"
             android:layout_height="20dp"
             android:background="#ececec" />
 
@@ -143,6 +152,7 @@
         android:gravity="center_vertical"
         android:padding="10dp"
         android:text="我的收货地址"
+        android:textSize="16sp"
         android:textColor="@color/black" />
 
     <include layout="@layout/layout_line" />
@@ -155,6 +165,7 @@
         android:drawablePadding="10dp"
         android:gravity="center_vertical"
         android:padding="10dp"
+        android:textSize="16sp"
         android:text="联系商家"
         android:textColor="@color/black" />
 
