@@ -44,7 +44,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:background="@drawable/user_back3" >
+        android:background="@drawable/user_back1" >
 
         <View
             android:layout_width="match_parent"
