@@ -18,4 +18,5 @@ public class Constant {
 	 * ResutlCode
 	 */
 	public static final int LOGOUT = 2;
+	public static final int ADD_NEWADDRESS=3;
 }

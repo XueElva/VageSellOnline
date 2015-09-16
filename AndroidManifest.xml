@@ -74,11 +74,6 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.newage.vagetableonlinesell.activity.FruitListActivity"
@@ -140,23 +135,47 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
-         <activity
+        <activity
             android:name="com.newage.vagetableonlinesell.activity.LoginActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
-          <activity
+        <activity
             android:name="com.newage.vagetableonlinesell.activity.RegisterActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
-         <activity
+        <activity
             android:name="com.newage.vagetableonlinesell.activity.SettingActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.newage.vagetableonlinesell.activity.WelcomeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.newage.vagetableonlinesell.activity.SelectAddressActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.newage.vagetableonlinesell.activity.AddNewAddressDialog"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
     </application>
 

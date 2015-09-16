@@ -6,13 +6,13 @@
     android:orientation="vertical" >
 
     <RelativeLayout
+        android:id="@+id/back"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:background="@color/white"
         android:padding="5dp" >
 
         <ImageView
-            android:id="@+id/back"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
@@ -44,6 +44,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="17sp"
             android:text="默认收货地址：" />
 
         <TextView
@@ -67,15 +68,15 @@
     <TextView
         android:id="@+id/addAddress"
         android:layout_width="150dp"
-        android:layout_height="40dp"
+        android:layout_height="35dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/btn_orange"
         android:drawableLeft="@drawable/icon_add_white"
+        android:gravity="center"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:gravity="center"
         android:text="添加地址"
         android:textColor="@color/white"
         android:textSize="18sp" />

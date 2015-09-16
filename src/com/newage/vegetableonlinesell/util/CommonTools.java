@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -30,37 +31,31 @@ public class CommonTools {
 	 * 
 	 * @param context
 	 */
+
 	public static void loginFirst(final Context context) {
-		AlertDialog dialog;
-		AlertDialog.Builder builder = new AlertDialog.Builder(context);
-		builder.setIcon(R.drawable.ic_launcher);
-		builder.setTitle(context.getResources().getString(R.string.prompt));
-		builder.setMessage(context.getResources()
-				.getString(R.string.loginFirst));
-		builder.setPositiveButton(
-				context.getResources().getString(R.string.login),
-				new DialogInterface.OnClickListener() {
+		View view = View.inflate(context, R.layout.dialog_loginprompt, null);
+		final Dialog dialog = new Dialog(context);
+		dialog.setContentView(view);
+		TextView login, cancel;
+		login = (TextView) view.findViewById(R.id.login);
+		cancel = (TextView) view.findViewById(R.id.cancel);
+		login.setOnClickListener(new OnClickListener() {
 
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-						context.startActivity(new Intent(context,
-								LoginActivity.class));
-						EventBus.getDefault().post(new FinishEvent());
-					}
-				});
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				context.startActivity(new Intent(context, LoginActivity.class));
+				EventBus.getDefault().post(new FinishEvent());
+			}
+		});
 
-		builder.setNegativeButton(
-				context.getResources().getString(R.string.cancel),
-				new DialogInterface.OnClickListener() {
+		cancel.setOnClickListener(new OnClickListener() {
 
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-						dialog.dismiss();
-					}
-				});
-		dialog = builder.create();
+			@Override
+			public void onClick(View v) {
+				dialog.cancel();
+			}
+		});
 		dialog.show();
 	}
 

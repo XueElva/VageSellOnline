@@ -3,6 +3,7 @@ package com.newage.vagetableonlinesell.activity;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import cn.bmob.v3.BmobUser;
@@ -12,14 +13,15 @@ import com.newage.vegetableonlinesell.bean.User;
 import com.xu.activity.XuBaseActivity;
 
 public class SettingActivity extends XuBaseActivity implements OnClickListener {
-	TextView mLogout, mBack;
+	TextView mLogout;
+	RelativeLayout mBack;
 	boolean logout;
 
 	@Override
 	public void setLayout() {
 		setContentView(R.layout.activity_setting);
 		mLogout = (TextView) findViewById(R.id.logout);
-		mBack = (TextView) findViewById(R.id.back);
+		mBack = (RelativeLayout) findViewById(R.id.back);
 		mLogout.setOnClickListener(this);
 		mBack.setOnClickListener(this);
 	}
