@@ -40,8 +40,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="登录"
-            android:textSize="17sp"
-            android:textColor="@color/orange" />
+            android:textSize="17sp" />
 
         <View
             android:layout_width="1dp"
@@ -55,8 +54,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="取消"
-            android:textSize="17sp"
-            android:textColor="@color/orange" />
+            android:textSize="17sp"/>
     </LinearLayout>
 
 </LinearLayout>

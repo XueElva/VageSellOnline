@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -35,6 +36,7 @@ public class CommonTools {
 	public static void loginFirst(final Context context) {
 		View view = View.inflate(context, R.layout.dialog_loginprompt, null);
 		final Dialog dialog = new Dialog(context);
+		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.setContentView(view);
 		TextView login, cancel;
 		login = (TextView) view.findViewById(R.id.login);
