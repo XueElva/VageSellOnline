@@ -1,7 +1,6 @@
 package com.newage.vagetableonlinesell.activity;
 
 import java.io.File;
-
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -9,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BmobFile;
-
+import com.newage.vegetableonlinesell.activity.R;
 import com.newage.vegetableonlinesell.bean.User;
 import com.newage.vegetableonlinesell.util.CommonTools;
 import com.xu.activity.XuBaseActivity;

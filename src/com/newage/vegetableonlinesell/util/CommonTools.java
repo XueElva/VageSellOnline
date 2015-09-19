@@ -21,14 +21,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.newage.vagetableonlinesell.activity.LoginActivity;
-import com.newage.vagetableonlinesell.activity.R;
+import com.newage.vegetableonlinesell.activity.R;
 import com.newage.vegetableonlinesell.event.FinishEvent;
 
 import de.greenrobot.event.EventBus;
 
 public class CommonTools {
 	/**
-	 * 提示请先登录
+	 * 鎻愮ず璇峰厛鐧诲綍
 	 * 
 	 * @param context
 	 */
@@ -62,7 +62,7 @@ public class CommonTools {
 	}
 
 	/**
-	 * 得到自定义的progressDialog
+	 * 寰楀埌鑷畾涔夌殑progressDialog
 	 * 
 	 * @param context
 	 * @param msg
@@ -73,25 +73,25 @@ public class CommonTools {
 	public static Dialog createLoadingDialog(Context context) {
 
 		LayoutInflater inflater = LayoutInflater.from(context);
-		View v = inflater.inflate(R.layout.dialog_loading, null);// 得到加载view
-		LinearLayout layout = (LinearLayout) v.findViewById(R.id.dialog_view);// 加载布局
-		// main.xml中的ImageView
+		View v = inflater.inflate(R.layout.dialog_loading, null);// 寰楀埌鍔犺浇view
+		LinearLayout layout = (LinearLayout) v.findViewById(R.id.dialog_view);// 鍔犺浇甯冨眬
+		// main.xml涓殑ImageView
 		ImageView spaceshipImage = (ImageView) v.findViewById(R.id.img);
-		TextView tipTextView = (TextView) v.findViewById(R.id.content);// 提示文字
+		TextView tipTextView = (TextView) v.findViewById(R.id.content);// 鎻愮ず鏂囧瓧
 		tipTextView.setText(context.getResources().getString(R.string.loading));
-		// 加载动画
+		// 鍔犺浇鍔ㄧ敾
 		Animation hyperspaceJumpAnimation = AnimationUtils.loadAnimation(
 				context, R.anim.loading_animation);
-		// 使用ImageView显示动画
+		// 浣跨敤ImageView鏄剧ず鍔ㄧ敾
 		spaceshipImage.startAnimation(hyperspaceJumpAnimation);
-		tipTextView.setText(context.getResources().getString(R.string.loading));// 设置加载信息
+		tipTextView.setText(context.getResources().getString(R.string.loading));// 璁剧疆鍔犺浇淇℃伅
 
-		Dialog loadingDialog = new Dialog(context, R.style.loading_dialog);// 创建自定义样式dialog
+		Dialog loadingDialog = new Dialog(context, R.style.loading_dialog);// 鍒涘缓鑷畾涔夋牱寮廳ialog
 
-		loadingDialog.setCancelable(true);// 不可以用“返回键”取�?
+		loadingDialog.setCancelable(true);// 涓嶅彲浠ョ敤鈥滆繑鍥為敭鈥濆彇锟�?
 		loadingDialog.setContentView(layout, new LinearLayout.LayoutParams(
 				LinearLayout.LayoutParams.FILL_PARENT,
-				LinearLayout.LayoutParams.FILL_PARENT));// 设置布局
+				LinearLayout.LayoutParams.FILL_PARENT));// 璁剧疆甯冨眬
 		LoadingDialog = loadingDialog;
 		return loadingDialog;
 	}
@@ -100,25 +100,25 @@ public class CommonTools {
 			Context context) {
 
 		LayoutInflater inflater = LayoutInflater.from(context);
-		View v = inflater.inflate(R.layout.dialog_loading, null);// 得到加载view
-		LinearLayout layout = (LinearLayout) v.findViewById(R.id.dialog_view);// 加载布局
-		// main.xml中的ImageView
+		View v = inflater.inflate(R.layout.dialog_loading, null);// 寰楀埌鍔犺浇view
+		LinearLayout layout = (LinearLayout) v.findViewById(R.id.dialog_view);// 鍔犺浇甯冨眬
+		// main.xml涓殑ImageView
 		ImageView spaceshipImage = (ImageView) v.findViewById(R.id.img);
-		TextView tipTextView = (TextView) v.findViewById(R.id.content);// 提示文字
+		TextView tipTextView = (TextView) v.findViewById(R.id.content);// 鎻愮ず鏂囧瓧
 		tipTextView.setText(title);
-		// 加载动画
+		// 鍔犺浇鍔ㄧ敾
 		Animation hyperspaceJumpAnimation = AnimationUtils.loadAnimation(
 				context, R.anim.loading_animation);
-		// 使用ImageView显示动画
+		// 浣跨敤ImageView鏄剧ず鍔ㄧ敾
 		spaceshipImage.startAnimation(hyperspaceJumpAnimation);
-		tipTextView.setText(context.getResources().getString(R.string.loading));// 设置加载信息
+		tipTextView.setText(context.getResources().getString(R.string.loading));// 璁剧疆鍔犺浇淇℃伅
 
-		Dialog loadingDialog = new Dialog(context, R.style.loading_dialog);// 创建自定义样式dialog
+		Dialog loadingDialog = new Dialog(context, R.style.loading_dialog);// 鍒涘缓鑷畾涔夋牱寮廳ialog
 
-		loadingDialog.setCancelable(true);// 不可以用“返回键”取�?
+		loadingDialog.setCancelable(true);// 涓嶅彲浠ョ敤鈥滆繑鍥為敭鈥濆彇锟�?
 		loadingDialog.setContentView(layout, new LinearLayout.LayoutParams(
 				LinearLayout.LayoutParams.FILL_PARENT,
-				LinearLayout.LayoutParams.FILL_PARENT));// 设置布局
+				LinearLayout.LayoutParams.FILL_PARENT));// 璁剧疆甯冨眬
 		LoadingDialog = loadingDialog;
 		return loadingDialog;
 	}
@@ -131,7 +131,7 @@ public class CommonTools {
 	}
 
 	/**
-	 * 缩小图片到指定大小
+	 * 缂╁皬鍥剧墖鍒版寚瀹氬ぇ灏�
 	 * 
 	 * @param bitmap
 	 * @return
@@ -149,7 +149,7 @@ public class CommonTools {
 	}
 
 	/**
-	 * 生成图片名称的json [{"imgName":""},{"imgName":""},{"imgName":""}]
+	 * 鐢熸垚鍥剧墖鍚嶇О鐨刯son [{"imgName":""},{"imgName":""},{"imgName":""}]
 	 * 
 	 * @param imgList
 	 * @return
@@ -173,7 +173,7 @@ public class CommonTools {
 	}
 
 	/**
-	 * 得到联系人列表 JSON串
+	 * 寰楀埌鑱旂郴浜哄垪琛� JSON涓�
 	 * [{"name":"","phone":""},{"name":"","phone":""},{"name":"","phone":""}]
 	 * 
 	 * @return

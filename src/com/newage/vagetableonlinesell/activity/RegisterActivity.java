@@ -3,7 +3,7 @@ package com.newage.vagetableonlinesell.activity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
-
+import com.newage.vegetableonlinesell.activity.R;
 import com.xu.activity.XuBaseActivity;
 
 public class RegisterActivity extends XuBaseActivity implements OnClickListener{

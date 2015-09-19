@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import cn.bmob.v3.BmobUser;
-
+import com.newage.vegetableonlinesell.activity.R;
 import com.newage.vegetableonlinesell.bean.User;
 import com.newage.vegetableonlinesell.util.CommonTools;
 import com.xu.activity.XuBaseActivity;

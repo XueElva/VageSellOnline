@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import cn.bmob.v3.listener.SaveListener;
-
+import com.newage.vegetableonlinesell.activity.R;
 import com.newage.vegetableonlinesell.bean.Constant;
 import com.newage.vegetableonlinesell.bean.User;
 import com.newage.vegetableonlinesell.util.CommonTools;

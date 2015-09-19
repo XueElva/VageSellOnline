@@ -78,12 +78,12 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:drawableLeft="@drawable/recipe_selector"
+                    android:drawablePadding="5dp"
                     android:gravity="center"
                     android:padding="4dp"
                     android:singleLine="true"
                     android:text="推荐食谱"
-                    android:drawablePadding="5dp"
-                    android:drawableLeft="@drawable/recipe_selector"
                     android:textColor="@drawable/myorder_tab_text"
                     android:textSize="15sp" />
 
@@ -110,12 +110,12 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:drawableLeft="@drawable/veget_selector"
+                    android:drawablePadding="5dp"
                     android:gravity="center"
                     android:padding="4dp"
                     android:singleLine="true"
                     android:text="推荐蔬果"
-                    android:drawablePadding="5dp"
-                    android:drawableLeft="@drawable/veget_selector"
                     android:textColor="@drawable/myorder_tab_text"
                     android:textSize="15sp" />
 
@@ -137,71 +137,90 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="40dp"
             android:orientation="vertical" >
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:layout_height="wrap_content" >
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="20dp"
+                    android:layout_height="1dp"
+                    android:layout_centerInParent="true"
+                    android:visibility="invisible" />
 
                 <ImageView
                     android:id="@+id/itemRecipe"
-                    android:layout_width="120dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="20dp"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_toLeftOf="@id/view1"
                     android:scaleType="fitXY"
                     android:src="@drawable/main_recipe" />
 
                 <ImageView
                     android:id="@+id/itemVagetable"
-                    android:layout_width="120dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="20dp"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_toRightOf="@id/view1"
                     android:scaleType="fitCenter"
                     android:src="@drawable/main_veget" />
-            </LinearLayout>
+            </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:layout_marginTop="20dp" >
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="20dp"
+                    android:layout_height="1dp"
+                    android:layout_centerInParent="true"
+                    android:visibility="invisible" />
 
                 <ImageView
                     android:id="@+id/itemFruit"
-                    android:layout_width="120dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="20dp"
-                    android:src="@drawable/ic_launcher" />
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_toLeftOf="@id/view2"
+                    android:src="@drawable/main_fruits" />
 
                 <ImageView
                     android:id="@+id/itemSpecialOffer"
-                    android:layout_width="120dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="20dp"
-                    android:src="@drawable/main_specialoffer" />
-            </LinearLayout>
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_toRightOf="@id/view2"
+                    android:src="@drawable/main_sale" />
+            </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:layout_marginTop="20dp" >
+
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="20dp"
+                    android:layout_height="1dp"
+                    android:layout_centerInParent="true"
+                    android:visibility="invisible" />
 
                 <ImageView
                     android:id="@+id/itemOthers"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_launcher" />
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_toLeftOf="@id/view3"
+                    android:src="@drawable/main_others" />
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_toRightOf="@id/view3"
                     android:src="@drawable/ic_launcher"
                     android:visibility="invisible" />
-            </LinearLayout>
+            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 

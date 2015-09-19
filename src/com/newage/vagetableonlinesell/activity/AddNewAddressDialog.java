@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
 
+import com.newage.vegetableonlinesell.activity.R;
 import com.xu.activity.XuBaseActivity;
 
 public class AddNewAddressDialog extends Activity{

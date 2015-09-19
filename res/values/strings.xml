@@ -11,5 +11,7 @@
     <string name="loading">正在努力加载中...</string>
     <string name="loginFail">登录失败</string>
     <string name="logoutSucceed">注销成功</string>
+    <string name="noMoreData">没有更多数据！</string>
+    <string name="dataLoadError">数据加载失败!</string>
 
 </resources>

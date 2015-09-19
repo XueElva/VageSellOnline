@@ -3,7 +3,7 @@ package com.newage.vagetableonlinesell.activity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-
+import com.newage.vegetableonlinesell.activity.R;
 import com.xu.activity.XuBaseActivity;
 
 //¹ºÎï³µ

@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
+import com.newage.vegetableonlinesell.activity.R;
 import com.newage.vegetableonlinesell.bean.Constant;
 import com.xu.activity.XuBaseActivity;
 

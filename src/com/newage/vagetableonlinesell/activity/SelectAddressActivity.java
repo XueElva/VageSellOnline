@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
-
+import com.newage.vegetableonlinesell.activity.R;
 import com.xu.activity.XuBaseActivity;
 
 public class SelectAddressActivity extends XuBaseActivity{

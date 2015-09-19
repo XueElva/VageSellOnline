@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import cn.bmob.v3.BmobUser;
-
+import com.newage.vegetableonlinesell.activity.R;
 import com.newage.vegetableonlinesell.bean.User;
 import com.newage.vegetableonlinesell.util.CommonTools;
 import com.xu.activity.XuBaseActivity;

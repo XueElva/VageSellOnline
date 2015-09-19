@@ -7,7 +7,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import cn.bmob.v3.BmobUser;
-
+import com.newage.vegetableonlinesell.activity.R;
 import com.newage.vegetableonlinesell.bean.Constant;
 import com.newage.vegetableonlinesell.bean.User;
 import com.xu.activity.XuBaseActivity;
