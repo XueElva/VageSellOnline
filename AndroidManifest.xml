@@ -131,6 +131,18 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name="com.newage.vagetableonlinesell.activity.RecipeChildClassListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.newage.vagetableonlinesell.activity.RecipeListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="com.newage.vagetableonlinesell.activity.RecipeDetailActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"

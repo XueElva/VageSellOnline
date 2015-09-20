@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 食谱小分类 -->
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/childClassName1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/shape_grey"
+    android:layout_height="30dp"
+    android:background="@drawable/frame_grey5"
     android:gravity="center"
-    android:padding="3dp"
     android:text="早餐"
     android:textColor="@color/black">
     

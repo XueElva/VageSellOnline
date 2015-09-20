@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/orange"
+    android:background="@color/theme_green"
     android:orientation="vertical" 
     android:alpha="0.8"
     android:padding="5dp">
@@ -17,7 +17,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="请选择地址："
-            android:textStyle="bold"
             android:textColor="@color/white"
             android:textSize="17sp" />
 

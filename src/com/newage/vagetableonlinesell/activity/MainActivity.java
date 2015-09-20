@@ -88,56 +88,55 @@ public class MainActivity extends XuBaseActivity implements OnClickListener {
 //		});
 
 		//添加菜谱数据
-		CookBookGroup parentGroup=new CookBookGroup();
-		parentGroup.setObjectId("qytCWWWf");
+//		CookBookGroup parentGroup=new CookBookGroup();
+//		parentGroup.setObjectId("qytCWWWf");
+//		
+//		CookBookChildGroup childGroup=new CookBookChildGroup();
+//		childGroup.setObjectId("ovkj111L");
+//		childGroup.setParentGroup(parentGroup);
+//		
+//		CookBookChildGroup childGroup2=new CookBookChildGroup();
+//		childGroup2.setObjectId("QEOa888E");
+//		childGroup2.setParentGroup(parentGroup);
 		
-		CookBookChildGroup childGroup=new CookBookChildGroup();
-		childGroup.setObjectId("Aay30005");
-		childGroup.setParentGroup(parentGroup);
+//		CookBookChildGroup childGroup3=new CookBookChildGroup();
+//		childGroup3.setObjectId("2oBSfffj");
+//		childGroup3.setParentGroup(parentGroup);
+//		
+//		CookBookChildGroup childGroup4=new CookBookChildGroup();
+//		childGroup4.setObjectId("5c7lWWW2");
+//		childGroup4.setParentGroup(parentGroup);
+//		
+//		CookBookChildGroup childGroup5=new CookBookChildGroup();
+//		childGroup5.setObjectId("FpnJ666G");
+//		childGroup5.setParentGroup(parentGroup);
+//		
+//		CookBookChildGroup childGroup6=new CookBookChildGroup();
+//		childGroup6.setObjectId("s1ctBBBF");
+//		childGroup6.setParentGroup(parentGroup);
 		
-		CookBookChildGroup childGroup2=new CookBookChildGroup();
-		childGroup2.setObjectId("Q3l8777W");
-		childGroup2.setParentGroup(parentGroup);
+//		List<BmobObject> list=new ArrayList<BmobObject>();
+//		list.add(childGroup);
+//		list.add(childGroup2);
+//		list.add(childGroup3);
+//		list.add(childGroup4);
+//		list.add(childGroup5);
+//		list.add(childGroup6);
 		
-		CookBookChildGroup childGroup3=new CookBookChildGroup();
-		childGroup3.setObjectId("etCaTTTs");
-		childGroup3.setParentGroup(parentGroup);
-		
-		CookBookChildGroup childGroup4=new CookBookChildGroup();
-		childGroup4.setObjectId("NCFe888J");
-		childGroup4.setParentGroup(parentGroup);
-		
-		CookBookChildGroup childGroup5=new CookBookChildGroup();
-		childGroup5.setObjectId("voTtGGGb");
-		childGroup5.setParentGroup(parentGroup);
-		
-		CookBookChildGroup childGroup6=new CookBookChildGroup();
-		childGroup6.setObjectId("PCRb666D");
-		childGroup6.setParentGroup(parentGroup);
-		
-		List<BmobObject> list=new ArrayList<BmobObject>();
-		list.add(childGroup);
-		list.add(childGroup2);
-		list.add(childGroup3);
-		list.add(childGroup4);
-		list.add(childGroup5);
-		list.add(childGroup6);
-		
-		 new BmobObject().updateBatch(getApplicationContext(), list, new UpdateListener() {
-			
-			@Override
-			public void onSuccess() {
-				T.showShort(getApplicationContext(), "批量操作成功");
-				
-			}
-			
-			@Override
-			public void onFailure(int arg0, String arg1) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-		
+//		 new BmobObject().updateBatch(getApplicationContext(), list, new UpdateListener() {
+//			
+//			@Override
+//			public void onSuccess() {
+//				T.showShort(getApplicationContext(), "批量操作成功");
+//				
+//			}
+//			
+//			@Override
+//			public void onFailure(int arg0, String arg1) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//		});
 		
 		if (!EventBus.getDefault().isRegistered(this)) {
 			EventBus.getDefault().register(this);
