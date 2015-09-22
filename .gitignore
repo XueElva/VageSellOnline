@@ -51,3 +51,6 @@ bin/AndroidManifest.xml
 *.apk
 *.ap_
 *.ap_
+*.ap_
+bin/resources.ap_
+*.ap_

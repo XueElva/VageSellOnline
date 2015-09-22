@@ -39,7 +39,7 @@ public class VegetableListActivity extends XuBaseActivity implements
 	@Override
 	public void setLayout() {
 		// TODO Auto-generated method stub
-		setContentView(R.layout.activity_vagetable);
+		setContentView(R.layout.activity_vegetable);
 		mBack = (LinearLayout) findViewById(R.id.back);
 		mShoppingCart = (ImageView) findViewById(R.id.shoppingCart);
 		mShoppingCart.setOnClickListener(this);

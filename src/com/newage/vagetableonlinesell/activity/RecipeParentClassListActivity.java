@@ -6,6 +6,8 @@ import java.util.List;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -68,6 +70,17 @@ public class RecipeParentClassListActivity extends XuBaseActivity implements
 				final ArrayList<CookBookChildGroup> chidGroupList = new ArrayList<CookBookChildGroup>();
 				ExpandedGridView childGroupGV = helper
 						.getView(R.id.recipeChildClassGV);
+				childGroupGV.setOnItemClickListener(new OnItemClickListener() {
+
+					@Override
+					public void onItemClick(AdapterView<?> parent, View view,
+							int position, long id) {
+						Intent intent=new Intent(RecipeParentClassListActivity.this,RecipeListActivity.class);
+						intent.putExtra("class", chidGroupList.get(position));
+						startActivity(intent);
+						
+					}
+				});
 				final CommonAdapter<CookBookChildGroup> mChildAdapter = new CommonAdapter<CookBookChildGroup>(
 						RecipeParentClassListActivity.this, chidGroupList,
 						R.layout.item_recipeclass_parentclassgv) {

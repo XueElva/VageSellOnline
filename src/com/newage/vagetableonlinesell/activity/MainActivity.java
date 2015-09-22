@@ -17,6 +17,7 @@ import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
 
 import com.newage.vegetableonlinesell.activity.R;
+import com.newage.vegetableonlinesell.bean.CookBook;
 import com.newage.vegetableonlinesell.bean.CookBookChildGroup;
 import com.newage.vegetableonlinesell.bean.CookBookGroup;
 import com.newage.vegetableonlinesell.bean.ProGroup;
@@ -88,16 +89,20 @@ public class MainActivity extends XuBaseActivity implements OnClickListener {
 //		});
 
 		//Ìí¼Ó²ËÆ×Êý¾Ý
-//		CookBookGroup parentGroup=new CookBookGroup();
-//		parentGroup.setObjectId("qytCWWWf");
+//		CookBookChildGroup group=new CookBookChildGroup();
+//		group.setObjectId("s1ctBBBF");
 //		
-//		CookBookChildGroup childGroup=new CookBookChildGroup();
-//		childGroup.setObjectId("ovkj111L");
-//		childGroup.setParentGroup(parentGroup);
+//		BmobRelation relation = new BmobRelation();
+//		relation.add(group);
 //		
-//		CookBookChildGroup childGroup2=new CookBookChildGroup();
-//		childGroup2.setObjectId("QEOa888E");
-//		childGroup2.setParentGroup(parentGroup);
+//		CookBook cookBook=new CookBook();
+//		cookBook.setObjectId("jEaK7779");
+//		cookBook.setGroupTag(relation);
+//		
+//		CookBook cookBook2=new CookBook();
+//		cookBook2.setObjectId("acGZ444N");
+//		cookBook2.setGroupTag(relation);
+		
 		
 //		CookBookChildGroup childGroup3=new CookBookChildGroup();
 //		childGroup3.setObjectId("2oBSfffj");
@@ -116,8 +121,8 @@ public class MainActivity extends XuBaseActivity implements OnClickListener {
 //		childGroup6.setParentGroup(parentGroup);
 		
 //		List<BmobObject> list=new ArrayList<BmobObject>();
-//		list.add(childGroup);
-//		list.add(childGroup2);
+//		list.add(cookBook);
+//		list.add(cookBook2);
 //		list.add(childGroup3);
 //		list.add(childGroup4);
 //		list.add(childGroup5);
