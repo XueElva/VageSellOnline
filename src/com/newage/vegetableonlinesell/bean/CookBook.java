@@ -9,7 +9,7 @@ import cn.bmob.v3.datatype.BmobRelation;
 public class CookBook extends BmobObject implements Serializable{
 private String Name; //菜谱名称
 private BmobFile Pic; //菜谱图片
-private ProductItem Needs; //店铺能够提供的食材
+private BmobRelation Needs; //店铺能够提供的食材
 private User Marked; //关注的用户
 private BmobRelation GroupTag; //所属分类
 private String AllNeeds; //所有食材JSON（[{"material":"","weight":""},{"material":"","weight":""}]）
@@ -35,10 +35,10 @@ public BmobFile getPic() {
 public void setPic(BmobFile pic) {
 	Pic = pic;
 }
-public ProductItem getNeeds() {
+public BmobRelation getNeeds() {
 	return Needs;
 }
-public void setNeeds(ProductItem needs) {
+public void setNeeds(BmobRelation needs) {
 	Needs = needs;
 }
 public User getMarked() {

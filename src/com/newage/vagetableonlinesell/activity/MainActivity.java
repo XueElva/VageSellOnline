@@ -89,15 +89,30 @@ public class MainActivity extends XuBaseActivity implements OnClickListener {
 //		});
 
 		//添加菜谱数据
-//		CookBookChildGroup group=new CookBookChildGroup();
-//		group.setObjectId("s1ctBBBF");
-//		
-//		BmobRelation relation = new BmobRelation();
-//		relation.add(group);
-//		
-//		CookBook cookBook=new CookBook();
-//		cookBook.setObjectId("jEaK7779");
-//		cookBook.setGroupTag(relation);
+		ProductItem product=new ProductItem();
+		product.setObjectId("c956eeefc9");
+		
+		BmobRelation relation = new BmobRelation();
+		relation.add(product);
+		
+		CookBook cookBook=new CookBook();
+		cookBook.setObjectId("acGZ444N");
+		cookBook.setNeeds(relation);
+		
+		cookBook.update(MainActivity.this, new UpdateListener() {
+			
+			@Override
+			public void onSuccess() {
+				 T.showShort(getApplicationContext(),"更新成功：");
+				
+			}
+			
+			@Override
+			public void onFailure(int arg0, String arg1) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 //		
 //		CookBook cookBook2=new CookBook();
 //		cookBook2.setObjectId("acGZ444N");

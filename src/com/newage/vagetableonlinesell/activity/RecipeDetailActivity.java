@@ -71,9 +71,13 @@ public class RecipeDetailActivity extends XuBaseActivity implements
 				RecipeDetailActivity.this, mProcessList, R.layout.item_process) {
 
 			@Override
-			public void convert(ViewHolder helper, JSONObject item) {
+			public void convert(ViewHolder helper, JSONObject item,int position) {
 				try {
-					helper.setText(R.id.text, item.getString("step"));
+					int step=position+1;
+					helper.setText(R.id.text,step+"."+item.getString("step"));
+					if(item.getString("imgUrl")!=null && !item.getString("imgUrl").equals("")){
+						ImageLoader.getInstance().displayImage(item.getString("imgUrl"), (ImageView) helper.getView(R.id.img));
+					}
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

@@ -54,3 +54,6 @@ bin/AndroidManifest.xml
 *.ap_
 bin/resources.ap_
 *.ap_
+*.ap_
+*.ap_
+*.ap_

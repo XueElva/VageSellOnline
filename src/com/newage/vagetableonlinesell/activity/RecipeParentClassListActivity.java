@@ -48,7 +48,7 @@ public class RecipeParentClassListActivity extends XuBaseActivity implements
 				R.layout.item_recipeclass_parentclasslv) {
 
 			@Override
-			public void convert(ViewHolder helper, final CookBookGroup item) {
+			public void convert(ViewHolder helper, final CookBookGroup item,int position) {
 				helper.setText(R.id.className, item.getGroupName());
 				ImageView img = helper.getView(R.id.classImg);
 				ImageLoader.getInstance().displayImage(
@@ -87,7 +87,7 @@ public class RecipeParentClassListActivity extends XuBaseActivity implements
 
 					@Override
 					public void convert(ViewHolder helper,
-							CookBookChildGroup item) {
+							CookBookChildGroup item,int position) {
 						helper.setText(R.id.childClassName1,
 								item.getGroupName());
 					}

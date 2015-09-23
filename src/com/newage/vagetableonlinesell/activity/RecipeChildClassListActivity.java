@@ -61,7 +61,7 @@ public class RecipeChildClassListActivity extends XuBaseActivity {
 		mAdapter=new CommonAdapter<CookBookChildGroup>(RecipeChildClassListActivity.this, mChildClassList, R.layout.item_recipe_childclass) {
 
 			@Override
-			public void convert(ViewHolder helper, CookBookChildGroup item) {
+			public void convert(ViewHolder helper, CookBookChildGroup item,int position) {
 				helper.setText(R.id.className, item.getGroupName());
 				
 			}

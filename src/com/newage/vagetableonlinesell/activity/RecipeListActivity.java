@@ -99,7 +99,7 @@ public class RecipeListActivity extends XuBaseActivity {
 				mRecipeLV, R.layout.item_common) {
 
 			@Override
-			public void convert(ViewHolder helper, CookBook item) {
+			public void convert(ViewHolder helper, CookBook item,int position) {
 				helper.setText(R.id.name, item.getName());
 				ImageView img = helper.getView(R.id.img);
 				ImageLoader.getInstance().displayImage(
