@@ -44,7 +44,9 @@ public class RecipeListActivity extends XuBaseActivity {
 		mBack = (ImageView) findViewById(R.id.back);
 		mShoppingCart = (ImageView) findViewById(R.id.shoppingCart);
 		mClassName = (TextView) findViewById(R.id.className);
-
+		
+		
+		mClassName.setText(mClass.getGroupName());
 		mBack.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -63,17 +65,18 @@ public class RecipeListActivity extends XuBaseActivity {
 
 			}
 		});
-		mClassName.setText(mClass.getGroupName());
+
 		mRecipeGV = (PullToRefreshGridView) findViewById(R.id.recipeGV);
 		mRecipeGV.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				Intent intent=new Intent(RecipeListActivity.this,RecipeDetailActivity.class);
+				Intent intent = new Intent(RecipeListActivity.this,
+						RecipeDetailActivity.class);
 				intent.putExtra("recipe", mRecipeLV.get(position));
 				startActivity(intent);
-				
+
 			}
 		});
 		mRecipeGV
@@ -99,7 +102,7 @@ public class RecipeListActivity extends XuBaseActivity {
 				mRecipeLV, R.layout.item_common) {
 
 			@Override
-			public void convert(ViewHolder helper, CookBook item,int position) {
+			public void convert(ViewHolder helper, CookBook item, int position) {
 				helper.setText(R.id.name, item.getName());
 				ImageView img = helper.getView(R.id.img);
 				ImageLoader.getInstance().displayImage(
