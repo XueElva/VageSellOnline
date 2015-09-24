@@ -20,6 +20,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshGridView;
 import com.newage.vegetableonlinesell.activity.R;
 import com.newage.vegetableonlinesell.bean.CookBook;
 import com.newage.vegetableonlinesell.bean.CookBookChildGroup;
+import com.newage.vegetableonlinesell.bean.ProductItem;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.xu.activity.XuBaseActivity;
 import com.xu.adapter.CommonAdapter;
@@ -29,9 +30,10 @@ import com.xu.utils.T;
 public class RecipeListActivity extends XuBaseActivity {
 	ImageView mBack, mShoppingCart;
 	TextView mClassName;
-	CookBookChildGroup mClass;
+	CookBookChildGroup mClass; // 若不为空，按种类搜索
+	ProductItem mProduct; // 若不为空，按商品搜索
 	PullToRefreshGridView mRecipeGV;
-	List<CookBook> mRecipeLV = new ArrayList<CookBook>();
+	List<CookBook> mRecipeList = new ArrayList<CookBook>();
 	CommonAdapter<CookBook> mAdapter;
 	int pageIndex = 0;
 
@@ -39,14 +41,20 @@ public class RecipeListActivity extends XuBaseActivity {
 	public void setLayout() {
 		setContentView(R.layout.activity_recipe_lv);
 
-		mClass = (CookBookChildGroup) getIntent().getSerializableExtra("class");
+		if (getIntent().getSerializableExtra("class") != null) {
+			mClass = (CookBookChildGroup) getIntent().getSerializableExtra(
+					"class");
+		} else {
+			mProduct = (ProductItem) getIntent()
+					.getSerializableExtra("product");
+		}
 
 		mBack = (ImageView) findViewById(R.id.back);
 		mShoppingCart = (ImageView) findViewById(R.id.shoppingCart);
 		mClassName = (TextView) findViewById(R.id.className);
-		
-		
-		mClassName.setText(mClass.getGroupName());
+
+		mClassName.setText(mClass == null ? mProduct.getName() : mClass
+				.getGroupName());
 		mBack.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -74,7 +82,7 @@ public class RecipeListActivity extends XuBaseActivity {
 					int position, long id) {
 				Intent intent = new Intent(RecipeListActivity.this,
 						RecipeDetailActivity.class);
-				intent.putExtra("recipe", mRecipeLV.get(position));
+				intent.putExtra("recipe", mRecipeList.get(position));
 				startActivity(intent);
 
 			}
@@ -86,7 +94,7 @@ public class RecipeListActivity extends XuBaseActivity {
 					public void onPullDownToRefresh(
 							PullToRefreshBase<GridView> refreshView) {
 						pageIndex = 0;
-						mRecipeLV.clear();
+						mRecipeList.clear();
 						getDatas();
 					}
 
@@ -99,7 +107,7 @@ public class RecipeListActivity extends XuBaseActivity {
 
 				});
 		mAdapter = new CommonAdapter<CookBook>(RecipeListActivity.this,
-				mRecipeLV, R.layout.item_common) {
+				mRecipeList, R.layout.item_common) {
 
 			@Override
 			public void convert(ViewHolder helper, CookBook item, int position) {
@@ -117,35 +125,76 @@ public class RecipeListActivity extends XuBaseActivity {
 
 	// 获取菜谱列表
 	private void getDatas() {
-		BmobQuery<CookBook> query = new BmobQuery<CookBook>();
-		query.addWhereEqualTo("GroupTag", new BmobPointer(mClass));
-		query.setSkip(pageIndex * 10);
-		query.findObjects(RecipeListActivity.this,
-				new FindListener<CookBook>() {
 
-					@Override
-					public void onSuccess(List<CookBook> list) {
-						if (list.size() > 0) {
-							pageIndex++;
-							mRecipeLV.addAll(list);
-							mAdapter.notifyDataSetChanged();
-						} else {
-							if (pageIndex == 0) {
+		if (mClass == null) {
+			// 按商品搜
+
+			BmobQuery<CookBook> query = new BmobQuery<CookBook>();
+			query.addWhereEqualTo("Needs", new BmobPointer(mProduct));
+			query.findObjects(RecipeListActivity.this,
+					new FindListener<CookBook>() {
+
+						@Override
+						public void onSuccess(List<CookBook> list) {
+							if (list.size() > 0) {
+								pageIndex++;
+								mRecipeList.addAll(list);
 								mAdapter.notifyDataSetChanged();
+							} else {
+								if (pageIndex == 0) {
+									mAdapter.notifyDataSetChanged();
+								}
+								T.showShort(
+										RecipeListActivity.this,
+										getResources().getString(
+												R.string.noMoreData));
 							}
-							T.showShort(RecipeListActivity.this, getResources()
-									.getString(R.string.noMoreData));
+
 						}
 
-					}
+						@Override
+						public void onError(int arg0, String arg1) {
+							// TODO Auto-generated method stub
+							T.showShort(RecipeListActivity.this, getResources()
+									.getString(R.string.dataLoadError));
+						}
+					});
 
-					@Override
-					public void onError(int arg0, String arg1) {
-						// TODO Auto-generated method stub
-						T.showShort(RecipeListActivity.this, getResources()
-								.getString(R.string.dataLoadError));
-					}
-				});
+		} else {
+			// 按分类搜
+			BmobQuery<CookBook> query = new BmobQuery<CookBook>();
+			query.addWhereEqualTo("GroupTag", new BmobPointer(mClass));
+			query.setSkip(pageIndex * 10);
+			query.findObjects(RecipeListActivity.this,
+					new FindListener<CookBook>() {
+
+						@Override
+						public void onSuccess(List<CookBook> list) {
+							if (list.size() > 0) {
+								pageIndex++;
+								mRecipeList.addAll(list);
+								mAdapter.notifyDataSetChanged();
+							} else {
+								if (pageIndex == 0) {
+									mAdapter.notifyDataSetChanged();
+								}
+								T.showShort(
+										RecipeListActivity.this,
+										getResources().getString(
+												R.string.noMoreData));
+							}
+
+						}
+
+						@Override
+						public void onError(int arg0, String arg1) {
+							// TODO Auto-generated method stub
+							T.showShort(RecipeListActivity.this, getResources()
+									.getString(R.string.dataLoadError));
+						}
+					});
+
+		}
 
 	}
 

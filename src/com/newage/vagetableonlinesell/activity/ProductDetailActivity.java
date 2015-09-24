@@ -35,7 +35,7 @@ public class ProductDetailActivity extends XuBaseActivity implements
 	ExpandedGridView mRecipeGV;
 	ArrayList<CookBook> mRecipeList;
 	CommonAdapter mAdapter;
-
+    TextView mMoreRecipe;
 	@Override
 	public void setLayout() {
 		// TODO Auto-generated method stub
@@ -105,9 +105,10 @@ public class ProductDetailActivity extends XuBaseActivity implements
 		mProductImg = (ImageView) findViewById(R.id.productImg);
 		mProductIntroduction = (TextView) findViewById(R.id.introduction);
 		mRecipeGV=(ExpandedGridView) findViewById(R.id.recipeGV);
+		mMoreRecipe=(TextView) findViewById(R.id.more);
 		mBack.setOnClickListener(this);
 		mShoppingCart.setOnClickListener(this);
-
+		mMoreRecipe.setOnClickListener(this);
 	}
 
 	@Override
@@ -126,6 +127,11 @@ public class ProductDetailActivity extends XuBaseActivity implements
 						ShoppingCartActivity.class);
 				startActivity(intent);
 			}
+			break;
+		case R.id.more:
+			Intent intent=new Intent(ProductDetailActivity.this,RecipeListActivity.class);
+			intent.putExtra("product", mProduct);
+			startActivity(intent);
 			break;
 		default:
 			break;
