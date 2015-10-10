@@ -13,5 +13,18 @@
     <string name="logoutSucceed">注销成功</string>
     <string name="noMoreData">没有更多数据！</string>
     <string name="dataLoadError">数据加载失败!</string>
+    <string name="connectPhone">联系电话：</string>
+    <string name="setSucceed">设置成功</string>
+    <string name="setFail">设置失败</string>
+    <string name="defaultAddress">默认地址：</string>
+    <string name="atleastOneAddress">请至少保留一个收货地址</string>
+    <string name="cannotDeleteDefaultAddress">默认地址不能删除</string>
+    <string name="deleteSucceed">删除成功</string>
+    <string name="deleteFail">删除失败</string>
+    <string name="addAddressPlease">请选择收货地址</string>
+    <string name="inputConnectPhone">请输入联系电话</string>
+    <string name="inputDetailAddress">请输入详细地址</string>
+    <string name="addSucceed">添加成功</string>
+    <string name="addFail">添加失败</string>
 
 </resources>

@@ -3,6 +3,10 @@ package com.newage.vegetableonlinesell.util;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -22,13 +26,49 @@ import android.widget.TextView;
 
 import com.newage.vagetableonlinesell.activity.LoginActivity;
 import com.newage.vegetableonlinesell.activity.R;
+import com.newage.vegetableonlinesell.bean.Area;
 import com.newage.vegetableonlinesell.event.FinishEvent;
 
 import de.greenrobot.event.EventBus;
 
 public class CommonTools {
+
 	/**
-	 * 鎻愮ず璇峰厛鐧诲綍
+	 * 提取地区名字
+	 * @param areas
+	 * @return
+	 */
+	public static ArrayList<String> getCityName(ArrayList<Area> areas){
+		ArrayList<String> areaNames=new ArrayList<String>();
+		for (int i = 0; i < areas.size(); i++) {
+			areaNames.add(areas.get(i).getName());
+		}
+		return areaNames;
+		
+	}
+	
+	/**
+	 * 返回默认收货地址
+	 * @param array
+	 * @return
+	 */
+	public static JSONObject getDefaultAddress(JSONArray array){
+		for (int i = 0; i < array.length(); i++) {
+			try {
+				JSONObject obj=array.getJSONObject(i);
+				if(obj.getString("isDefault").equals("true")){
+					return obj;
+				}
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		return null;
+	}
+	/**
+	 * 提示先登录
 	 * 
 	 * @param context
 	 */
@@ -62,7 +102,7 @@ public class CommonTools {
 	}
 
 	/**
-	 * 寰楀埌鑷畾涔夌殑progressDialog
+	 * 通用加载框progressDialog
 	 * 
 	 * @param context
 	 * @param msg
@@ -131,7 +171,7 @@ public class CommonTools {
 	}
 
 	/**
-	 * 缂╁皬鍥剧墖鍒版寚瀹氬ぇ灏�
+	 * 压缩图片
 	 * 
 	 * @param bitmap
 	 * @return
@@ -149,7 +189,7 @@ public class CommonTools {
 	}
 
 	/**
-	 * 鐢熸垚鍥剧墖鍚嶇О鐨刯son [{"imgName":""},{"imgName":""},{"imgName":""}]
+	 *  [{"imgName":""},{"imgName":""},{"imgName":""}]
 	 * 
 	 * @param imgList
 	 * @return
@@ -173,7 +213,7 @@ public class CommonTools {
 	}
 
 	/**
-	 * 寰楀埌鑱旂郴浜哄垪琛� JSON涓�
+	 * 
 	 * [{"name":"","phone":""},{"name":"","phone":""},{"name":"","phone":""}]
 	 * 
 	 * @return

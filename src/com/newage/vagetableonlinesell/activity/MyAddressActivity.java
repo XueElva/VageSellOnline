@@ -18,6 +18,7 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.FindListener;
 
+import com.google.gson.JsonArray;
 import com.newage.vegetableonlinesell.activity.R;
 import com.newage.vegetableonlinesell.adapter.AddressAdapter;
 import com.newage.vegetableonlinesell.bean.Area;
@@ -33,29 +34,57 @@ public class MyAddressActivity extends XuBaseActivity implements
 	TextView mAddAddress;
 	TextView mDefaultAddressTV;
 	ListView mAddressListView;
-	List<JSONObject> mAddressList;
-    AddressAdapter mAdapter;    
+	List<JSONObject> mAddressList = new ArrayList<JSONObject>();
+	AddressAdapter mAdapter;
+
 	@Override
 	public void setLayout() {
 		// TODO Auto-generated method stub
 		setContentView(R.layout.activity_myaddress);
 		initView();
+		getAddressList();
+		mAdapter = new AddressAdapter((ArrayList<JSONObject>) mAddressList,
+				MyAddressActivity.this, new OnShowDefaultAddressListener() {
+
+					@Override
+					public void OnShowDefaultAddress(
+							HashMap<String, String> defaultAddress) {
+						if (defaultAddress != null) {
+							mDefaultAddressTV.setText(defaultAddress
+									.get("address")
+									+ "\n\n"
+									+ getString(R.string.connectPhone)
+									+ defaultAddress.get("phone"));
+						}
+
+					}
+				});
+		mAddressListView.setAdapter(mAdapter);
+	}
+
+	private void getAddressList() {
 		User currentUser = BmobUser.getCurrentUser(MyAddressActivity.this,
 				User.class);
 		if (currentUser.getAddress() != null) {
 			try {
 				mAddressList = parseAddress(new JSONArray(
 						currentUser.getAddress()));
-				
+
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			mAdapter=new AddressAdapter((ArrayList<JSONObject>)mAddressList, MyAddressActivity.this);
-			mAddressListView.setAdapter(mAdapter);
-//			mDefaultAddressTV.setText(mAdapter.getDefaultAddress().get("address")+"  "+mAdapter.getDefaultAddress().get("phone"));
 		}
+	}
 
+	@Override
+	protected void onResume() {
+		getAddressList();
+		mAdapter.notifyDataSetChanged();
+		super.onResume();
+	}
+	public interface OnShowDefaultAddressListener {
+		public void OnShowDefaultAddress(HashMap<String, String> defaultAddress);
 	}
 
 	private void initView() {
