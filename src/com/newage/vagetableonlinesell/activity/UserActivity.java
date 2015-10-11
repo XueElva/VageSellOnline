@@ -4,26 +4,29 @@ import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.newage.vegetableonlinesell.activity.R;
 import com.newage.vegetableonlinesell.bean.Constant;
 import com.xu.activity.XuBaseActivity;
 
 public class UserActivity extends XuBaseActivity implements OnClickListener {
-	ImageView mBack,mSetting;
-	TextView mMyOrder,mMyShoppingCart, mMyAddr, mCallServer;
+	ImageView mBack, mSetting;
+	LinearLayout mMyOrder, mMyShoppingCart;
+	TextView mMyAddr, mCallServer;
 
 	@Override
 	public void setLayout() {
 		// TODO Auto-generated method stub
 		setContentView(R.layout.activity_user);
 		mBack = (ImageView) findViewById(R.id.back);
-		mMyOrder = (TextView) findViewById(R.id.myOrder);
-		mMyShoppingCart=(TextView) findViewById(R.id.myShoppingCart);
+		mMyOrder = (LinearLayout) findViewById(R.id.myOrder);
+		mMyShoppingCart = (LinearLayout) findViewById(R.id.myShoppingCart);
 		mMyAddr = (TextView) findViewById(R.id.myAddr);
 		mCallServer = (TextView) findViewById(R.id.callServer);
-		mSetting=(ImageView) findViewById(R.id.setting);
-		
+		mSetting = (ImageView) findViewById(R.id.setting);
+
 		mSetting.setOnClickListener(this);
 		mBack.setOnClickListener(this);
 		mMyAddr.setOnClickListener(this);
@@ -39,10 +42,12 @@ public class UserActivity extends XuBaseActivity implements OnClickListener {
 			finish();
 			break;
 		case R.id.setting:
-			startActivityForResult(new Intent(UserActivity.this,SettingActivity.class), Constant.LOGOUT);
+			startActivityForResult(new Intent(UserActivity.this,
+					SettingActivity.class), Constant.LOGOUT);
 			break;
 		case R.id.myShoppingCart:
-			Intent intent1 = new Intent(UserActivity.this, ShoppingCartActivity.class);
+			Intent intent1 = new Intent(UserActivity.this,
+					ShoppingCartActivity.class);
 			startActivity(intent1);
 			break;
 		case R.id.myOrder: // 我的订单
@@ -50,7 +55,8 @@ public class UserActivity extends XuBaseActivity implements OnClickListener {
 			startActivity(intent);
 			break;
 		case R.id.myAddr: // 我的收货地址
-			Intent intent2 = new Intent(UserActivity.this, MyAddressActivity.class);
+			Intent intent2 = new Intent(UserActivity.this,
+					MyAddressActivity.class);
 			startActivity(intent2);
 			break;
 		case R.id.callServer: // 联系商家
@@ -61,10 +67,10 @@ public class UserActivity extends XuBaseActivity implements OnClickListener {
 		}
 
 	}
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if(resultCode==Constant.LOGOUT){
+		if (resultCode == Constant.LOGOUT) {
 			finish();
 		}
 		super.onActivityResult(requestCode, resultCode, data);
