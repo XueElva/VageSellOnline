@@ -1,20 +1,28 @@
 package com.newage.vagetableonlinesell.activity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import cn.bmob.v3.BmobUser;
 
 import com.newage.vegetableonlinesell.activity.R;
 import com.newage.vegetableonlinesell.bean.Constant;
+import com.newage.vegetableonlinesell.bean.User;
+import com.newage.vegetableonlinesell.util.CommonTools;
 import com.xu.activity.XuBaseActivity;
 
 public class UserActivity extends XuBaseActivity implements OnClickListener {
 	ImageView mBack, mSetting;
-	LinearLayout mMyOrder, mMyShoppingCart;
+	TextView mDefaultAddress, mDefaultPhone;
 	TextView mMyAddr, mCallServer;
+	LinearLayout mMyOrder, mMyShoppingCart;
 
 	@Override
 	public void setLayout() {
@@ -26,6 +34,32 @@ public class UserActivity extends XuBaseActivity implements OnClickListener {
 		mMyAddr = (TextView) findViewById(R.id.myAddr);
 		mCallServer = (TextView) findViewById(R.id.callServer);
 		mSetting = (ImageView) findViewById(R.id.setting);
+		mDefaultAddress = (TextView) findViewById(R.id.defaultAddress);
+		mDefaultPhone = (TextView) findViewById(R.id.defaultPhone);
+
+		User currentUser = BmobUser.getCurrentUser(getApplicationContext(),
+				User.class);
+		try {
+			if (currentUser.getAddress() != null) {
+				JSONObject defaultAddress = CommonTools
+						.getDefaultAddress(new JSONArray(currentUser
+								.getAddress()));
+				if (defaultAddress != null) {
+
+					mDefaultAddress.setText(getResources().getString(
+							R.string.defaultAddress)
+							+ defaultAddress.getString("detail"));
+					mDefaultPhone.setText(getResources().getString(
+							R.string.connectPhone)
+							+ defaultAddress.getString("phone"));
+				}
+
+			}
+
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		mSetting.setOnClickListener(this);
 		mBack.setOnClickListener(this);

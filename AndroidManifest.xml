@@ -190,6 +190,12 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
+        <activity
+            android:name="com.newage.vagetableonlinesell.activity.AddNewAddressActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

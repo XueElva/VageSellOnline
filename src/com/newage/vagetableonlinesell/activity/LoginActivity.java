@@ -1,5 +1,8 @@
 package com.newage.vagetableonlinesell.activity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,7 +14,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.SaveListener;
+
 import com.newage.vegetableonlinesell.activity.R;
 import com.newage.vegetableonlinesell.bean.Constant;
 import com.newage.vegetableonlinesell.bean.User;
@@ -93,8 +98,22 @@ public class LoginActivity extends XuBaseActivity implements OnClickListener {
 								getApplicationContext(),
 								getResources().getString(R.string.loginSucceed),
 								1).show();
-						startActivity(new Intent(LoginActivity.this,
-								MainActivity.class));
+						User currentUser = BmobUser.getCurrentUser(
+								LoginActivity.this, User.class);
+						try {
+							if (null == currentUser.getAddress() || currentUser.getAddress().equals("") || new JSONArray(currentUser.getAddress())
+									.length() == 0 ) {
+								startActivity(new Intent(LoginActivity.this,
+										AddNewAddressActivity.class));
+							} else {
+								startActivity(new Intent(LoginActivity.this,
+										MainActivity.class));
+							}
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+
 						finish();
 					}
 

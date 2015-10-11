@@ -7,21 +7,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.FindListener;
@@ -34,7 +30,7 @@ import com.newage.vegetableonlinesell.util.CommonTools;
 import com.xu.activity.XuBaseActivity;
 import com.xu.utils.T;
 
-public class AddNewAddressDialog extends Activity {
+public class AddNewAddressActivity extends XuBaseActivity {
 	Spinner mProvince, mCity, mArea, mLivingArea;
 	EditText mConnectPhone, mDetailAddress;
 	Button mAdd, mCancel;
@@ -47,29 +43,26 @@ public class AddNewAddressDialog extends Activity {
 			mCityList = new ArrayList<String>(),
 			mAreaList = new ArrayList<String>(),
 			mLivingAreaList = new ArrayList<String>();
-
 	ArrayAdapter<String> mProvinceAdapter, mCityAdapter, mAreaAdapter,
 			mLivingAdapter;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	public void setLayout() {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.dialog_newaddress);
-
-		mCurrentUser = BmobUser.getCurrentUser(AddNewAddressDialog.this,
+		mCurrentUser = BmobUser.getCurrentUser(AddNewAddressActivity.this,
 				User.class);
 		initView();
-		mProvinceAdapter = new ArrayAdapter<String>(AddNewAddressDialog.this,
+		mProvinceAdapter = new ArrayAdapter<String>(AddNewAddressActivity.this,
 				R.layout.item_spinner, mProvinceList);
 		mProvince.setAdapter(mProvinceAdapter);
-		mCityAdapter = new ArrayAdapter<String>(AddNewAddressDialog.this,
+		mCityAdapter = new ArrayAdapter<String>(AddNewAddressActivity.this,
 				R.layout.item_spinner, mCityList);
 		mCity.setAdapter(mCityAdapter);
-		mAreaAdapter = new ArrayAdapter<String>(AddNewAddressDialog.this,
+		mAreaAdapter = new ArrayAdapter<String>(AddNewAddressActivity.this,
 				R.layout.item_spinner, mAreaList);
 		mArea.setAdapter(mAreaAdapter);
-		mLivingAdapter = new ArrayAdapter<String>(AddNewAddressDialog.this,
+		mLivingAdapter = new ArrayAdapter<String>(AddNewAddressActivity.this,
 				R.layout.item_spinner, mLivingAreaList);
 		mLivingArea.setAdapter(mLivingAdapter);
 
@@ -104,7 +97,6 @@ public class AddNewAddressDialog extends Activity {
 		mConnectPhone = (EditText) findViewById(R.id.connectPhone);
 		mAdd = (Button) findViewById(R.id.add);
 		mCancel = (Button) findViewById(R.id.cancel);
-
 		mProvince.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
@@ -113,14 +105,15 @@ public class AddNewAddressDialog extends Activity {
 				BmobQuery<Area> city = new BmobQuery<Area>();
 				city.addWhereEqualTo("parentArea", mProvinces.get(position)
 						.getObjectId());
-				city.findObjects(AddNewAddressDialog.this,
+				city.findObjects(AddNewAddressActivity.this,
 						new FindListener<Area>() {
 
 							@Override
 							public void onSuccess(List<Area> arg0) {
 								mCitys.clear();
 								mCitys.addAll(arg0);
-								mCityList.addAll(CommonTools.getCityName(mCitys));
+								mCityList.addAll(CommonTools
+										.getCityName(mCitys));
 								mCityAdapter.notifyDataSetChanged();
 							}
 
@@ -147,7 +140,7 @@ public class AddNewAddressDialog extends Activity {
 				BmobQuery<Area> area = new BmobQuery<Area>();
 				area.addWhereEqualTo("parentArea", mCitys.get(position)
 						.getObjectId());
-				area.findObjects(AddNewAddressDialog.this,
+				area.findObjects(AddNewAddressActivity.this,
 						new FindListener<Area>() {
 
 							@Override
@@ -185,7 +178,7 @@ public class AddNewAddressDialog extends Activity {
 				BmobQuery<Area> livingArea = new BmobQuery<Area>();
 				livingArea.addWhereEqualTo("parentArea", mAreas.get(position)
 						.getObjectId());
-				livingArea.findObjects(AddNewAddressDialog.this,
+				livingArea.findObjects(AddNewAddressActivity.this,
 						new FindListener<Area>() {
 
 							@Override
@@ -214,12 +207,12 @@ public class AddNewAddressDialog extends Activity {
 
 			}
 		});
-
 		mCancel.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				finish();
+				T.show(AddNewAddressActivity.this,
+						getResources().getString(R.string.addAddressPlease), 1);
 			}
 		});
 
@@ -230,15 +223,13 @@ public class AddNewAddressDialog extends Activity {
 
 				try {
 					if (mDetailAddress.getText().length() == 0) {
-						T.show(AddNewAddressDialog.this, getResources()
+						T.show(AddNewAddressActivity.this, getResources()
 								.getString(R.string.inputDetailAddress), 1);
 					} else if (mConnectPhone.getText().length() == 0) {
-						T.show(AddNewAddressDialog.this, getResources()
+						T.show(AddNewAddressActivity.this, getResources()
 								.getString(R.string.inputConnectPhone), 1);
 					} else {
 						// Ìí¼ÓÐÂµØÖ·
-						JSONArray addressArray = new JSONArray(mCurrentUser
-								.getAddress());
 
 						JSONObject newAddress = new JSONObject();
 						newAddress.put("detail", mProvince.getSelectedItem()
@@ -256,38 +247,32 @@ public class AddNewAddressDialog extends Activity {
 								mLivingAreas.get(
 										mLivingArea.getSelectedItemPosition())
 										.getObjectId());
-						newAddress.put("isDefault", "false");
+						newAddress.put("isDefault", "true");
 						newAddress.put("phone", mConnectPhone.getText()
 								.toString());
-						addressArray.put(newAddress);
 						StringBuffer sb = new StringBuffer();
 						sb.append("[");
-						for (int i = 0; i < addressArray.length(); i++) {
-							sb.append(addressArray.getJSONObject(i).toString());
-							if (i < (addressArray.length() - 1)) {
-								sb.append(",");
-							}
-
-						}
-
+						sb.append(newAddress.toString());
 						sb.append("]");
+
 						User currentUser = BmobUser.getCurrentUser(
-								AddNewAddressDialog.this, User.class);
+								AddNewAddressActivity.this, User.class);
 						currentUser.setAddress(sb.toString());
-						currentUser.update(AddNewAddressDialog.this,
+						currentUser.update(AddNewAddressActivity.this,
 								new UpdateListener() {
 
 									@Override
 									public void onSuccess() {
-										T.show(AddNewAddressDialog.this,
+										T.show(AddNewAddressActivity.this,
 												getString(R.string.addSucceed),
 												1);
+										startActivity(new Intent(AddNewAddressActivity.this,MainActivity.class));
 										finish();
 									}
 
 									@Override
 									public void onFailure(int arg0, String arg1) {
-										T.show(AddNewAddressDialog.this,
+										T.show(AddNewAddressActivity.this,
 												getString(R.string.addFail), 1);
 
 									}
@@ -304,4 +289,16 @@ public class AddNewAddressDialog extends Activity {
 
 	}
 
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			mCurrentUser.logOut(AddNewAddressActivity.this);
+			Intent intent = new Intent(AddNewAddressActivity.this,
+					LoginActivity.class);
+			startActivity(intent);
+			finish();
+
+		}
+		return super.onKeyDown(keyCode, event);
+	}
 }

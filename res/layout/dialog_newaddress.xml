@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical" >
 
@@ -52,7 +52,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:background="@drawable/shape_edit_search" />
+                android:background="@drawable/shape_edit_search"
+                style="@style/spinnerStyle"
+                android:spinnerMode="dropdown" />
 
             <TextView
                 android:layout_width="50dp"
@@ -67,7 +69,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:background="@drawable/shape_edit_search" />
+                style="@style/spinnerStyle"
+                android:background="@drawable/shape_edit_search"
+                android:spinnerMode="dropdown" />
         </LinearLayout>
 
         <LinearLayout
@@ -90,7 +94,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:background="@drawable/shape_edit_search" />
+                style="@style/spinnerStyle"
+                android:background="@drawable/shape_edit_search"
+                android:spinnerMode="dropdown" />
 
             <TextView
                 android:layout_width="50dp"
@@ -105,15 +111,63 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:background="@drawable/shape_edit_search" />
+                style="@style/spinnerStyle"
+                android:background="@drawable/shape_edit_search"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="具体地址："
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/detailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/shape_edit_search"
+                android:hint="XX栋X单元XXX"
+                android:padding="3dp"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="联系电话："
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/connectPhone"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/shape_edit_search"
+                android:inputType="number"
+                android:padding="3dp"
+                android:textSize="15sp" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:orientation="horizontal" >
 

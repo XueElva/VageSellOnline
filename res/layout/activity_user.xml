@@ -43,12 +43,12 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="160dp"
         android:background="@drawable/user_back1" >
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:layout_alignParentBottom="true"
             android:alpha="0.8"
             android:background="@color/white" />
@@ -58,28 +58,25 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="20dp"
             android:src="@drawable/ic_launcher" />
-
-        <TextView
-            android:id="@+id/defaultAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="5dp"
-            android:layout_toRightOf="@id/icon"
-            android:text="默认地址："
-            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/defaultPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@id/defaultAddress"
+            android:layout_alignParentBottom="true"
             android:layout_marginBottom="5dp"
             android:layout_toRightOf="@id/icon"
-            android:text="18669097767"
-            android:textColor="@color/black" />
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/defaultAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/defaultPhone"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@id/icon" />
     </RelativeLayout>
 
     <LinearLayout
